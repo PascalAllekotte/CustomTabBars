@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct Home: View {
+    // MARK: VARIABLES -
+    @State private var activeTab: Tab1 = .play // Zustandvariable von dem Binding var auf customTabBar1
+    
+    
+    // MARK: VIEW -
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0){
+         Spacer()
+            
+            
+            // CustomTabBar1
+            CustomTabBar1(activeTab: $activeTab)
+        }
+        .ignoresSafeArea(.all, edges: .bottom)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            Rectangle()
+                .fill(Color("BG"))
+                .ignoresSafeArea()
+        }
     }
 }
 
